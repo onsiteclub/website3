@@ -4,6 +4,7 @@ import FloorPlan from '@/components/FloorPlan';
 import Carousel from '@/components/Carousel';
 import Manifesto from '@/components/Manifesto';
 import Bottom from '@/components/Bottom';
+import FloatingPromo from '@/components/FloatingPromo';
 
 const SITE_URL = 'https://www.onsiteclub.ca';
 
@@ -124,6 +125,7 @@ export default function Home() {
         <Manifesto />
         <Bottom />
       </main>
+      <FloatingPromo />
     </>
   );
 }

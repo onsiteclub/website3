@@ -1,4 +1,19 @@
 {
+  "banner": {
+    "calculator_badge": "FREE",
+    "calculator_text": "Voice Inch Calculator — Add, split & convert measurements by voice",
+    "calculator_cta": "Try Now",
+    "calculator_name": "OnSite Calculator",
+    "calculator_desc": "Add, split and convert measurements in inches by voice. Built for framers, free on all platforms.",
+    "timekeeper_badge": "NEW",
+    "timekeeper_text": "OnSite Timekeeper — GPS clock-in with auto PDF reports",
+    "timekeeper_cta": "Get Started",
+    "timekeeper_name": "OnSite Timekeeper",
+    "timekeeper_desc": "GPS geofence clock-in with automatic PDF reports every week. Track hours across multiple job sites.",
+    "btn_ios": "App Store",
+    "btn_android": "Google Play",
+    "btn_web": "Open in Browser"
+  },
   "meta": {
     "title": "OnSite Club — Gear, Technology, Knowledge",
     "description": "Three rooms. One club. Everything a construction professional needs."
@@ -104,6 +119,24 @@
     "success": "Message sent! We'll get back to you soon.",
     "error": "Something went wrong. Please try again.",
     "sending": "Sending..."
+  },
+  "cookies": {
+    "title": "We value your privacy",
+    "description": "We use cookies to improve your experience, analyze site traffic, and for marketing purposes. By clicking \"Accept All\", you consent to the use of all cookies. You can manage your preferences or decline non-essential cookies at any time.",
+    "privacy_link": "Privacy Policy",
+    "accept": "Accept All",
+    "reject": "Decline All",
+    "manage": "Manage Preferences",
+    "save": "Save Preferences",
+    "prefs_title": "Cookie Preferences",
+    "prefs_desc": "Choose which cookies you allow. Essential cookies are always active as they are necessary for the site to function.",
+    "cat_essential": "Essential",
+    "cat_essential_desc": "Required for the website to function. Cannot be disabled.",
+    "cat_analytics": "Analytics",
+    "cat_analytics_desc": "Help us understand how visitors use our site to improve your experience.",
+    "cat_marketing": "Marketing",
+    "cat_marketing_desc": "Used to deliver relevant ads and track campaign performance.",
+    "always_on": "Always on"
   },
   "bottom": {
     "social_title": "Find us on social",

@@ -1,4 +1,19 @@
 {
+  "banner": {
+    "calculator_badge": "GRATUIT",
+    "calculator_text": "Calculatrice Vocale — Additionnez, divisez et convertissez par la voix",
+    "calculator_cta": "Essayer",
+    "calculator_name": "OnSite Calculator",
+    "calculator_desc": "Additionnez, divisez et convertissez des mesures en pouces par la voix. Faite pour les charpentiers, gratuite sur toutes les plateformes.",
+    "timekeeper_badge": "NOUVEAU",
+    "timekeeper_text": "OnSite Timekeeper — Pointage GPS avec rapports PDF automatiques",
+    "timekeeper_cta": "Commencer",
+    "timekeeper_name": "OnSite Timekeeper",
+    "timekeeper_desc": "Pointage GPS avec géorepérage et rapports PDF automatiques chaque semaine. Suivez vos heures sur plusieurs chantiers.",
+    "btn_ios": "App Store",
+    "btn_android": "Google Play",
+    "btn_web": "Ouvrir dans le Navigateur"
+  },
   "meta": {
     "title": "OnSite Club — Équipement, Technologie, Savoir",
     "description": "Trois pièces. Un club. Tout ce dont un professionnel de la construction a besoin."
@@ -104,6 +119,24 @@
     "success": "Message envoyé! Nous vous répondrons bientôt.",
     "error": "Une erreur est survenue. Veuillez réessayer.",
     "sending": "Envoi..."
+  },
+  "cookies": {
+    "title": "Nous respectons votre vie privée",
+    "description": "Nous utilisons des témoins (cookies) pour améliorer votre expérience, analyser le trafic et à des fins marketing. En cliquant « Tout accepter », vous consentez à l'utilisation de tous les témoins. Vous pouvez gérer vos préférences ou refuser les témoins non essentiels à tout moment.",
+    "privacy_link": "Politique de confidentialité",
+    "accept": "Tout accepter",
+    "reject": "Tout refuser",
+    "manage": "Gérer les préférences",
+    "save": "Enregistrer",
+    "prefs_title": "Préférences de témoins",
+    "prefs_desc": "Choisissez les témoins que vous autorisez. Les témoins essentiels sont toujours actifs car nécessaires au fonctionnement du site.",
+    "cat_essential": "Essentiels",
+    "cat_essential_desc": "Nécessaires au fonctionnement du site. Ne peuvent être désactivés.",
+    "cat_analytics": "Analytiques",
+    "cat_analytics_desc": "Nous aident à comprendre comment les visiteurs utilisent notre site.",
+    "cat_marketing": "Marketing",
+    "cat_marketing_desc": "Utilisés pour diffuser des publicités pertinentes et mesurer les campagnes.",
+    "always_on": "Toujours actif"
   },
   "bottom": {
     "social_title": "Trouvez-nous sur les réseaux",

@@ -1,4 +1,19 @@
 {
+  "banner": {
+    "calculator_badge": "GRÁTIS",
+    "calculator_text": "Calculadora por Voz — Some, divida e converta medidas por voz",
+    "calculator_cta": "Teste Agora",
+    "calculator_name": "OnSite Calculator",
+    "calculator_desc": "Some, divida e converta medidas em polegadas por voz. Feita pra quem faz framing, grátis em todas as plataformas.",
+    "timekeeper_badge": "NOVO",
+    "timekeeper_text": "OnSite Timekeeper — Ponto GPS com relatórios PDF automáticos",
+    "timekeeper_cta": "Começar",
+    "timekeeper_name": "OnSite Timekeeper",
+    "timekeeper_desc": "Ponto por GPS com geofence e relatórios PDF automáticos toda semana. Controle horas em vários canteiros.",
+    "btn_ios": "App Store",
+    "btn_android": "Google Play",
+    "btn_web": "Abrir no Navegador"
+  },
   "meta": {
     "title": "OnSite Club — Equipamento, Tecnologia, Conhecimento",
     "description": "Três salas. Um clube. Tudo que um profissional da construção precisa."
@@ -104,6 +119,24 @@
     "success": "Mensagem enviada! Retornaremos em breve.",
     "error": "Algo deu errado. Tente novamente.",
     "sending": "Enviando..."
+  },
+  "cookies": {
+    "title": "Valorizamos sua privacidade",
+    "description": "Usamos cookies para melhorar sua experiência, analisar o tráfego e para fins de marketing. Ao clicar em \"Aceitar tudo\", você consente com o uso de todos os cookies. Você pode gerenciar suas preferências ou recusar cookies não essenciais a qualquer momento.",
+    "privacy_link": "Política de Privacidade",
+    "accept": "Aceitar tudo",
+    "reject": "Recusar tudo",
+    "manage": "Gerenciar preferências",
+    "save": "Salvar preferências",
+    "prefs_title": "Preferências de cookies",
+    "prefs_desc": "Escolha quais cookies você permite. Os cookies essenciais estão sempre ativos pois são necessários para o funcionamento do site.",
+    "cat_essential": "Essenciais",
+    "cat_essential_desc": "Necessários para o funcionamento do site. Não podem ser desativados.",
+    "cat_analytics": "Analíticos",
+    "cat_analytics_desc": "Nos ajudam a entender como os visitantes usam nosso site.",
+    "cat_marketing": "Marketing",
+    "cat_marketing_desc": "Usados para exibir anúncios relevantes e medir o desempenho de campanhas.",
+    "always_on": "Sempre ativo"
   },
   "bottom": {
     "social_title": "Nos encontre nas redes",
