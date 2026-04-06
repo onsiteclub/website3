@@ -127,8 +127,12 @@ export default function FloatingPromo() {
       {!expanded ? (
         /* ── Collapsed card ── */
         <div className="float-promo-collapsed" onClick={handleCardClick} role="button" tabIndex={0}>
+          <div className="float-promo-img">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/tool-calculator-woman.png" alt="OnSite Calculator" />
+          </div>
           <div className="float-promo-badge">{t(`${promo.key}_badge`)}</div>
-          <div className="float-promo-title">{t(`${promo.key}_text`)}</div>
+          <div className="float-promo-title">{t(`${promo.key}_name`)}</div>
           <div className="float-promo-cta">{t(`${promo.key}_cta`)} &rarr;</div>
         </div>
       ) : (

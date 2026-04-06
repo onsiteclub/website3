@@ -46,6 +46,35 @@ const BP: [number, number, number, boolean, number, number][] = [
   [50, 3, 80, false, 1, 1],
   [50, 3, 40, true, 0, 0],
 
+  // Behind man (center-right upper)
+  [58, 12, 120, true, 0, 1],
+  [58, 12, 80, false, 1, 0],
+  [65, 8, 90, false, 0, 0],
+  [65, 8, 70, true, 2, 1],
+  [72, 15, 110, true, 1, 0],
+  [72, 15, 60, false, 0, 1],
+
+  // Behind man mid-body
+  [55, 30, 100, false, 1, 1],
+  [62, 25, 90, true, 0, 0],
+  [68, 35, 80, false, 2, 0],
+  [75, 28, 70, true, 1, 1],
+
+  // Around woman's head area
+  [78, 40, 100, true, 0, 0],
+  [78, 40, 70, false, 1, 1],
+  [82, 48, 80, true, 2, 0],
+  [85, 38, 90, false, 0, 1],
+  [70, 50, 80, false, 1, 0],
+  [75, 55, 60, true, 0, 1],
+
+  // Center-right fill
+  [60, 45, 70, true, 0, 1],
+  [60, 55, 80, false, 2, 0],
+  [68, 60, 60, true, 1, 0],
+  [85, 65, 90, false, 0, 0],
+  [85, 65, 70, true, 1, 1],
+
   // Far right edge marks (border area)
   [96, 15, 180, true, 0, 0],
   [96, 15, 50, false, 2, 1],
@@ -83,6 +112,9 @@ function BlueprintLines() {
         const grad = vert
           ? `linear-gradient(to bottom, ${from}, ${to})`
           : `linear-gradient(to right, ${from}, ${to})`;
+        // Staggered entrance delay + random pulse delay
+        const entranceDelay = 0.3 + i * 0.04;
+        const pulseDelay = (i * 1.7) % 8;
         const style: React.CSSProperties = {
           position: 'absolute',
           left: `${x}%`,
@@ -91,8 +123,10 @@ function BlueprintLines() {
           height: vert ? `${len}px` : '1.5px',
           background: grad,
           pointerEvents: 'none',
+          animationDelay: `${entranceDelay}s, ${entranceDelay + 2.5}s`,
+          ['--pulse-delay' as string]: `${pulseDelay}s`,
         };
-        return <div key={i} style={style} />;
+        return <div key={i} className={`bp-line ${vert ? 'bp-v' : 'bp-h'}`} style={style} />;
       })}
     </div>
   );
