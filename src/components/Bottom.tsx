@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import {
   INSTAGRAM_URL,
@@ -56,6 +57,18 @@ export default function Bottom() {
           <a href={CALCULATOR_URL}>{t('calculator')}</a>
           <a href={TIMEKEEPER_URL}>{t('timekeeper')}</a>
           <a href={DASHBOARD_URL}>{t('members')}</a>
+        </div>
+      </div>
+
+      {/* Legal */}
+      <div className="bottom-cell">
+        <h3>{t('legal_title')}</h3>
+        <div className="bottom-links">
+          <Link href="/privacy">{t('privacy_policy')}</Link>
+          <Link href="/legal/calculator-privacy">{t('calc_privacy')}</Link>
+          <Link href="/legal/calculator-terms">{t('calc_terms')}</Link>
+          <Link href="/legal/timekeeper-privacy">{t('tk_privacy')}</Link>
+          <Link href="/legal/timekeeper-terms">{t('tk_terms')}</Link>
         </div>
         <p className="copy">{t('copyright')} <span>·</span></p>
       </div>

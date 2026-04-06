@@ -108,7 +108,7 @@ export default function Opening() {
       <BlueprintLines />
 
       <span className="corner tl">45°25&apos;N 75°41&apos;W</span>
-      <span className="corner tr">EST. 2024</span>
+      <span className="corner tr">EST. 2025</span>
       <span className="corner br">ONTARIO, CA</span>
 
       <div className="opening-content">

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 
 const STORAGE_KEY = 'onsite_cookie_consent';
 
@@ -58,7 +59,7 @@ export default function CookieConsent() {
             <h3 className="cookie-title">{t('title')}</h3>
             <p className="cookie-desc">
               {t('description')}{' '}
-              <a href="/privacy" className="cookie-link">{t('privacy_link')}</a>.
+              <Link href="/privacy" className="cookie-link">{t('privacy_link')}</Link>.
             </p>
           </div>
           <div className="cookie-actions">

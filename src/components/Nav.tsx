@@ -1,14 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
+import { useRouter, usePathname } from '@/i18n/routing';
 import {
   SHOP_URL, TECH_URL, LEARN_URL, DASHBOARD_URL,
   SHOP_TEES_URL, SHOP_HOODIES_URL, SHOP_CAPS_URL, SHOP_STICKERS_URL,
   CALCULATOR_URL, TIMEKEEPER_URL, CHECKLIST_URL,
 } from '@/lib/constants';
 import ContactModal from './ContactModal';
+
+const LOCALES = [
+  { code: 'en', label: 'EN' },
+  { code: 'fr', label: 'FR' },
+  { code: 'es', label: 'ES' },
+  { code: 'pt', label: 'PT' },
+] as const;
 
 interface DropdownItem {
   key: string;
@@ -37,9 +45,17 @@ const LEARN_ITEMS: DropdownItem[] = [
 export default function Nav() {
   const t = useTranslations('nav');
   const td = useTranslations('nav_dropdown');
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [mobileDD, setMobileDD] = useState<string | null>(null);
+
+  function switchLocale(code: string) {
+    router.replace(pathname, { locale: code });
+    closeAll();
+  }
 
   function handleTrigger(name: string, e: React.MouseEvent) {
     if (window.innerWidth <= 900) {
@@ -160,6 +176,32 @@ export default function Nav() {
           >
             {t('contact')}
           </button>
+          {/* Language selector */}
+          <div className="nav-dropdown nav-lang">
+            <button
+              onClick={(e) => handleTrigger('lang', e)}
+              className="nav-dropdown-trigger nav-lang-trigger"
+            >
+              <svg className="nav-lang-globe" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.2">
+                <circle cx="8" cy="8" r="6.5" />
+                <path d="M1.5 8h13M8 1.5c-2 2.5-2 9.5 0 13M8 1.5c2 2.5 2 9.5 0 13" />
+              </svg>
+              {locale.toUpperCase()}
+              {chevron}
+            </button>
+            <div className={`nav-dropdown-menu nav-lang-menu${mobileDD === 'lang' ? ' mobile-open' : ''}`}>
+              {LOCALES.map(l => (
+                <button
+                  key={l.code}
+                  className={`nav-lang-option${l.code === locale ? ' active' : ''}`}
+                  onClick={() => switchLocale(l.code)}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <a href={DASHBOARD_URL} className="nav-btn" onClick={closeAll}>{t('members')}</a>
         </div>
       </nav>
