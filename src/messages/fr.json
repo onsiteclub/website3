@@ -8,14 +8,27 @@
     "technology": "Technologie",
     "learn": "Apprendre",
     "contact": "Contact",
-    "members": "Membres"
+    "members": "Mon Espace"
+  },
+  "nav_dropdown": {
+    "tees": "T-shirts",
+    "hoodies": "Kangourous",
+    "caps": "Casquettes",
+    "stickers": "Autocollants",
+    "calculator": "Calculatrice",
+    "timekeeper": "Timekeeper",
+    "checklist": "Checklist",
+    "custom": "Logiciel Sur Mesure",
+    "certifications": "Certifications",
+    "courses": "Cours"
   },
   "opening": {
     "tagline": "Équipement · Technologie · Savoir",
     "title_1": "On construit",
     "title_2": "des solutions",
     "title_3": "pour les bâtisseurs.",
-    "subtitle": "Équipement, outils et un crew pour ceux qui construisent vraiment ce pays."
+    "subtitle": "Équipement, outils et un crew pour ceux qui construisent vraiment ce pays.",
+    "scroll": "Explorez"
   },
   "floorplan": {
     "label": "Explorez le Plan",
@@ -78,6 +91,19 @@
     "text_strong_2": "un nom sur ce qu'il a construit",
     "text_3": ".",
     "sign": "Fondé par un charpentier · Fait au Canada"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "name_label": "Nom",
+    "name_placeholder": "Votre nom",
+    "email_label": "Courriel",
+    "email_placeholder": "votre@courriel.com",
+    "message_label": "Message",
+    "message_placeholder": "Comment pouvons-nous vous aider?",
+    "submit": "Envoyer",
+    "success": "Message envoyé! Nous vous répondrons bientôt.",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "sending": "Envoi..."
   },
   "bottom": {
     "social_title": "Trouvez-nous sur les réseaux",

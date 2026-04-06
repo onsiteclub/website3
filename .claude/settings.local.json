@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l:*)",
+      "Bash(python:*)"
+    ],
+    "additionalDirectories": [
+      "c:\\Dev\\Onsite-club\\onsite-website-2\\src\\app",
+      "c:\\Dev\\Onsite-club\\onsite-website-2\\public",
+      "C:\\Users\\crist\\OneDrive\\Desktop"
+    ]
+  }
+}

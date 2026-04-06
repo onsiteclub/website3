@@ -1,4 +1,7 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import {
   INSTAGRAM_URL,
   FACEBOOK_COMMUNITY_URL,
@@ -12,9 +15,10 @@ import {
 
 export default function Bottom() {
   const t = useTranslations('bottom');
+  const ref = useScrollReveal<HTMLDivElement>();
 
   return (
-    <div className="bottom" id="contact">
+    <div className="bottom reveal" id="contact" ref={ref}>
       {/* Social */}
       <div className="bottom-cell">
         <h3>{t('social_title')}</h3>

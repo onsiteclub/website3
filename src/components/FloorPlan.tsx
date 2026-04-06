@@ -1,18 +1,22 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { SHOP_URL, TECH_URL, LEARN_URL } from '@/lib/constants';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export default function FloorPlan() {
   const t = useTranslations('floorplan');
+  const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section className="floorplan">
+    <section className="floorplan reveal" id="blueprint" ref={ref}>
       <div className="fp-label">— {t('label')} —</div>
 
       <div className="fp-grid">
         {/* GEAR room */}
-        <a href={SHOP_URL} className="room room-gear">
-          <Image src="/images/product-men.webp" alt="" fill sizes="(max-width:900px) 100vw, 50vw" className="room-bg" />
+        <a href={SHOP_URL} className="room room-gear" target="_blank" rel="noopener noreferrer">
+          <Image src="/images/banner-shop.png" alt="" fill sizes="(max-width:900px) 100vw, 50vw" className="room-bg" />
           <div className="room-head">
             <div className="room-id">{t('room_gear_id')}</div>
             <div className="room-area">shop.onsiteclub.ca</div>
@@ -28,8 +32,8 @@ export default function FloorPlan() {
         </a>
 
         {/* TECH room — spans two rows */}
-        <a href={TECH_URL} className="room room-tech">
-          <Image src="/images/calc1.jpeg" alt="" fill sizes="(max-width:900px) 100vw, 50vw" className="room-bg" />
+        <a href={TECH_URL} className="room room-tech" target="_blank" rel="noopener noreferrer">
+          <Image src="/images/tool-calculator-woman.png" alt="" fill sizes="(max-width:900px) 100vw, 50vw" className="room-bg" />
           <div className="room-head">
             <div className="room-id">{t('room_tech_id')}</div>
             <div className="room-area">tech.onsiteclub.ca</div>
@@ -46,7 +50,7 @@ export default function FloorPlan() {
         </a>
 
         {/* LEARN room */}
-        <a href={LEARN_URL} className="room room-learn">
+        <a href={LEARN_URL} className="room room-learn" target="_blank" rel="noopener noreferrer">
           <Image src="/images/learn.png" alt="" fill sizes="(max-width:900px) 100vw, 50vw" className="room-bg" />
           <div className="room-head">
             <div className="room-id">{t('room_learn_id')}</div>

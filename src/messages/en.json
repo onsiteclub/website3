@@ -8,14 +8,27 @@
     "technology": "Technology",
     "learn": "Learn",
     "contact": "Contact",
-    "members": "Members"
+    "members": "My Area"
+  },
+  "nav_dropdown": {
+    "tees": "Tees",
+    "hoodies": "Hoodies",
+    "caps": "Caps",
+    "stickers": "Stickers",
+    "calculator": "Calculator",
+    "timekeeper": "Timekeeper",
+    "checklist": "Checklist",
+    "custom": "Custom Software",
+    "certifications": "Certifications",
+    "courses": "Courses"
   },
   "opening": {
     "tagline": "Gear · Technology · Knowledge",
     "title_1": "We build",
     "title_2": "solutions",
     "title_3": "for builders.",
-    "subtitle": "Gear, tools, and a crew for the people who actually build this country."
+    "subtitle": "Gear, tools, and a crew for the people who actually build this country.",
+    "scroll": "Explore"
   },
   "floorplan": {
     "label": "Explore the Blueprint",
@@ -78,6 +91,19 @@
     "text_strong_2": "a name on what they built",
     "text_3": ".",
     "sign": "Founded by a carpenter · Built in Canada"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "name_label": "Name",
+    "name_placeholder": "Your name",
+    "email_label": "Email",
+    "email_placeholder": "your@email.com",
+    "message_label": "Message",
+    "message_placeholder": "How can we help?",
+    "submit": "Send Message",
+    "success": "Message sent! We'll get back to you soon.",
+    "error": "Something went wrong. Please try again.",
+    "sending": "Sending..."
   },
   "bottom": {
     "social_title": "Find us on social",

@@ -117,11 +117,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Nav />
-      <Opening />
-      <FloorPlan />
-      <Carousel />
-      <Manifesto />
-      <Bottom />
+      <main>
+        <Opening />
+        <FloorPlan />
+        <Carousel />
+        <Manifesto />
+        <Bottom />
+      </main>
     </>
   );
 }

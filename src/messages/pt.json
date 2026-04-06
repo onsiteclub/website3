@@ -8,14 +8,27 @@
     "technology": "Tecnologia",
     "learn": "Aprender",
     "contact": "Contato",
-    "members": "Membros"
+    "members": "Minha Área"
+  },
+  "nav_dropdown": {
+    "tees": "Camisetas",
+    "hoodies": "Moletons",
+    "caps": "Bonés",
+    "stickers": "Adesivos",
+    "calculator": "Calculadora",
+    "timekeeper": "Timekeeper",
+    "checklist": "Checklist",
+    "custom": "Software Sob Medida",
+    "certifications": "Certificações",
+    "courses": "Cursos"
   },
   "opening": {
     "tagline": "Equipamento · Tecnologia · Conhecimento",
     "title_1": "Construímos",
     "title_2": "soluções",
     "title_3": "pra quem constrói.",
-    "subtitle": "Equipamento, ferramentas e um crew pra quem realmente constrói esse país."
+    "subtitle": "Equipamento, ferramentas e um crew pra quem realmente constrói esse país.",
+    "scroll": "Explore"
   },
   "floorplan": {
     "label": "Explore a Planta",
@@ -78,6 +91,19 @@
     "text_strong_2": "um nome no que construiu",
     "text_3": ".",
     "sign": "Fundado por um carpinteiro · Feito no Canadá"
+  },
+  "contact": {
+    "title": "Fale Conosco",
+    "name_label": "Nome",
+    "name_placeholder": "Seu nome",
+    "email_label": "Email",
+    "email_placeholder": "seu@email.com",
+    "message_label": "Mensagem",
+    "message_placeholder": "Como podemos ajudar?",
+    "submit": "Enviar Mensagem",
+    "success": "Mensagem enviada! Retornaremos em breve.",
+    "error": "Algo deu errado. Tente novamente.",
+    "sending": "Enviando..."
   },
   "bottom": {
     "social_title": "Nos encontre nas redes",

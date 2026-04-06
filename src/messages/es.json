@@ -8,14 +8,27 @@
     "technology": "Tecnología",
     "learn": "Aprender",
     "contact": "Contacto",
-    "members": "Miembros"
+    "members": "Mi Área"
+  },
+  "nav_dropdown": {
+    "tees": "Camisetas",
+    "hoodies": "Sudaderas",
+    "caps": "Gorras",
+    "stickers": "Stickers",
+    "calculator": "Calculadora",
+    "timekeeper": "Timekeeper",
+    "checklist": "Checklist",
+    "custom": "Software a Medida",
+    "certifications": "Certificaciones",
+    "courses": "Cursos"
   },
   "opening": {
     "tagline": "Equipo · Tecnología · Conocimiento",
     "title_1": "Construimos",
     "title_2": "soluciones",
     "title_3": "para constructores.",
-    "subtitle": "Equipo, herramientas y un crew para la gente que realmente construye este país."
+    "subtitle": "Equipo, herramientas y un crew para la gente que realmente construye este país.",
+    "scroll": "Explora"
   },
   "floorplan": {
     "label": "Explora el Plano",
@@ -78,6 +91,19 @@
     "text_strong_2": "un nombre en lo que construyó",
     "text_3": ".",
     "sign": "Fundado por un carpintero · Hecho en Canadá"
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "name_label": "Nombre",
+    "name_placeholder": "Su nombre",
+    "email_label": "Correo",
+    "email_placeholder": "su@correo.com",
+    "message_label": "Mensaje",
+    "message_placeholder": "¿Cómo podemos ayudar?",
+    "submit": "Enviar Mensaje",
+    "success": "¡Mensaje enviado! Le responderemos pronto.",
+    "error": "Algo salió mal. Intente de nuevo.",
+    "sending": "Enviando..."
   },
   "bottom": {
     "social_title": "Encuéntranos en redes",
