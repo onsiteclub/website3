@@ -7,7 +7,9 @@ import { useRouter, usePathname } from '@/i18n/routing';
 import {
   SHOP_URL, TECH_URL, LEARN_URL, DASHBOARD_URL,
   SHOP_TEES_URL, SHOP_HOODIES_URL, SHOP_CAPS_URL, SHOP_STICKERS_URL,
-  CALCULATOR_URL, TIMEKEEPER_URL, CHECKLIST_URL,
+  CALCULATOR_URL, CALCULATOR_IOS_URL, CALCULATOR_ANDROID_URL,
+  TIMEKEEPER_URL, TIMEKEEPER_ANDROID_URL,
+  CHECKLIST_URL,
 } from '@/lib/constants';
 import ContactModal from './ContactModal';
 
@@ -30,9 +32,33 @@ const GEAR_ITEMS: DropdownItem[] = [
   { key: 'stickers', url: SHOP_STICKERS_URL },
 ];
 
-const TECH_ITEMS: DropdownItem[] = [
-  { key: 'calculator', url: CALCULATOR_URL },
-  { key: 'timekeeper', url: TIMEKEEPER_URL },
+interface PlatformLink {
+  label: string;
+  url: string;
+}
+
+interface TechItem {
+  key: string;
+  url: string;
+  platforms?: PlatformLink[];
+}
+
+const TECH_ITEMS: TechItem[] = [
+  {
+    key: 'calculator', url: CALCULATOR_URL,
+    platforms: [
+      { label: 'App Store', url: CALCULATOR_IOS_URL },
+      { label: 'Google Play', url: CALCULATOR_ANDROID_URL },
+      { label: 'Web', url: CALCULATOR_URL },
+    ],
+  },
+  {
+    key: 'timekeeper', url: TIMEKEEPER_URL,
+    platforms: [
+      { label: 'Google Play', url: TIMEKEEPER_ANDROID_URL },
+      { label: 'Web', url: TIMEKEEPER_URL },
+    ],
+  },
   { key: 'checklist', url: CHECKLIST_URL },
   { key: 'custom', url: TECH_URL },
 ];
@@ -139,11 +165,24 @@ export default function Nav() {
               <a href={TECH_URL} className="nav-dd-all" onClick={closeAll} target="_blank" rel="noopener noreferrer">
                 {t('technology')} &rarr;
               </a>
-              {TECH_ITEMS.map(item => (
-                <a key={item.key} href={item.url} onClick={closeAll} target="_blank" rel="noopener noreferrer">
-                  {td(item.key)}
-                </a>
-              ))}
+              {TECH_ITEMS.map(item =>
+                item.platforms ? (
+                  <div key={item.key} className="nav-dd-group">
+                    <span className="nav-dd-group-label">{td(item.key)}</span>
+                    <div className="nav-dd-platforms">
+                      {item.platforms.map(p => (
+                        <a key={p.label} href={p.url} onClick={closeAll} target="_blank" rel="noopener noreferrer">
+                          {p.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a key={item.key} href={item.url} onClick={closeAll} target="_blank" rel="noopener noreferrer">
+                    {td(item.key)}
+                  </a>
+                )
+              )}
             </div>
           </div>
 

@@ -96,9 +96,9 @@ const BP: [number, number, number, boolean, number, number][] = [
 ];
 
 const COLORS = [
-  ['rgba(160,160,160,0.40)', 'rgba(160,160,160,0.08)'],   // gray
-  ['rgba(0,0,0,0.50)',       'rgba(0,0,0,0.10)'],          // black
-  ['rgba(212,175,55,0.25)',  'rgba(212,175,55,0.05)'],     // amber
+  ['rgba(30,30,30,0.55)', 'rgba(30,30,30,0.12)'],     // dark gray
+  ['rgba(10,10,10,0.60)', 'rgba(10,10,10,0.15)'],     // near black
+  ['rgba(40,35,20,0.40)', 'rgba(40,35,20,0.10)'],     // dark amber
 ];
 
 function BlueprintLines() {
@@ -149,8 +149,8 @@ export default function Opening() {
         <div className="opening-pre">{t('tagline')}</div>
         <h1>
           {t('title_1')}<br />
-          <span className="word-amber">{t('title_2')}</span><br />
-          {t('title_3')}
+          <span className="word-amber">{t('title_2')}</span>
+          {t('title_3') && <><br />{t('title_3')}</>}
         </h1>
         <p className="opening-sub">{t('subtitle')}</p>
         <a href="#blueprint" className="opening-scroll">
