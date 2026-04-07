@@ -5,7 +5,7 @@
   --gold: #F7B324;
   --cream: #EAE6DE;
   --txt: #C8C4BC;
-  --mute: #8B9099;
+  --mute: #A0A6B0;
   --line: rgba(255,255,255,0.05);
   --font-body: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -22,7 +22,7 @@ body {
   cursor: default;
 }
 a { text-decoration: none; color: inherit; }
-a, button, [role="button"] { cursor: pointer; }
+a, button, [role="button"] { cursor: pointer; touch-action: manipulation; }
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   outline: 2px solid var(--amber);
   outline-offset: 2px;
@@ -61,10 +61,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .nav-r a:hover { color: var(--cream); }
 .nav-r a.nav-btn {
   font-family: var(--font-mono);
-  font-size: 0.7rem; font-weight: 700;
+  font-size: 0.78rem; font-weight: 700;
   letter-spacing: 0.08em; text-transform: uppercase;
   color: #2A2D31; background: var(--amber);
-  padding: 0.5rem 1.1rem; border-radius: 3px;
+  padding: 0.6rem 1.3rem; border-radius: 3px;
+  min-height: 44px; display: inline-flex; align-items: center;
   transition: background 0.3s, color 0.3s;
 }
 .nav-r a.nav-btn:hover { background: var(--gold); color: #2A2D31; }
@@ -112,8 +113,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .nav-dropdown-menu a {
   background: rgba(30,33,36,0.97);
-  padding: 0.55rem 1.1rem;
+  padding: 0.65rem 1.2rem;
   font-size: 0.75rem !important;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   font-weight: 500 !important;
   letter-spacing: 0.06em;
   color: var(--mute) !important;
@@ -167,10 +171,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   padding-left: 0.3rem;
 }
 .nav-dd-platforms a {
-  font-size: 0.6rem !important;
+  font-size: 0.75rem !important;
   font-weight: 500 !important;
   color: var(--mute) !important;
-  padding: 0.2rem 0 !important;
+  padding: 0.35rem 0 !important;
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
@@ -185,10 +189,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: none;
   border: 1px solid var(--line);
   border-radius: 3px;
-  padding: 0.35rem 0.6rem;
+  padding: 0.45rem 0.7rem;
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
+  min-height: 40px;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--mute);
@@ -214,7 +219,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   border: none;
   border-left: 1px solid var(--line);
   border-right: 1px solid var(--line);
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
+  min-height: 44px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 500;
@@ -320,7 +326,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 .opening-pre {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -402,12 +408,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: none;
   border: none;
   color: var(--cream);
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   align-items: center;
   justify-content: center;
 }
-.nav-toggle svg { width: 22px; height: 22px; }
+.nav-toggle svg { width: 26px; height: 26px; }
 
 .corner {
   position: absolute;
@@ -431,7 +437,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .fp-label {
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -531,7 +537,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 .room-id {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -575,7 +581,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: center;
   gap: 0.8rem;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -672,7 +678,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .bento-label {
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -746,7 +752,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .bento-card-tag {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -776,15 +782,18 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .bento-card-cta {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.7);
   background: transparent;
   border: 1px solid rgba(255,255,255,0.2);
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 6px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
   transition: color 0.3s, border-color 0.3s, background 0.3s;
@@ -800,41 +809,82 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .bento-card-content--stacked {
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-end;
   gap: 1.2rem;
+  height: 100%;
 }
-.bento-platform-buttons {
+
+/* ═══ STORE BADGES (shared) ═══ */
+.store-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   width: 100%;
 }
-.bento-platform-btn {
+.store-badge {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 6px;
-  padding: 0.7rem 1.1rem;
-  transition: all 0.25s;
+  gap: 0.7rem;
+  color: #fff;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  padding: 0.5rem 1.2rem 0.5rem 0.8rem;
+  transition: all 0.2s;
   white-space: nowrap;
+  min-height: 52px;
 }
-.bento-platform-btn:hover {
-  color: var(--amber);
-  border-color: var(--amber);
-  background: rgba(197,139,27,0.12);
+.store-badge:hover {
+  background: #1a1a1a;
+  border-color: rgba(255,255,255,0.4);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  transform: translateY(-1px);
 }
-.bento-platform-btn svg {
+.store-icon {
   flex-shrink: 0;
-  opacity: 0.7;
+  width: 26px;
+  height: 26px;
 }
-.bento-platform-btn:hover svg { opacity: 1; }
+.store-badge-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.store-badge-sub {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+}
+.store-badge-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+/* Smaller variant for footer */
+.store-badges--sm {
+  margin-top: 0.5rem;
+}
+.store-badges--sm .store-badge {
+  padding: 0.4rem 1rem 0.4rem 0.7rem;
+  min-height: 48px;
+  border-radius: 8px;
+}
+.store-badges--sm .store-icon {
+  width: 22px;
+  height: 22px;
+}
+.store-badges--sm .store-badge-sub {
+  font-size: 0.55rem;
+}
+.store-badges--sm .store-badge-name {
+  font-size: 0.85rem;
+}
 
 /* ═══ MANIFESTO ═══ */
 .mani {
@@ -850,7 +900,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .mani-bg {
   position: absolute;
   top: 0; right: 0; bottom: 0;
-  width: 55%;
+  width: 58%;
   overflow: hidden;
 }
 .mani-bg-img {
@@ -899,7 +949,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .mani-sign-text {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -933,8 +983,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  width: 28px;
-  height: 28px;
+  width: 44px;
+  height: 44px;
   background: none;
   border: 1px solid var(--line);
   border-radius: 50%;
@@ -945,7 +995,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   cursor: pointer;
   transition: all 0.3s;
 }
-.modal-close svg { width: 14px; height: 14px; }
+.modal-close svg { width: 18px; height: 18px; }
 .modal-close:hover {
   background: var(--amber);
   border-color: var(--amber);
@@ -974,7 +1024,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .modal-field { display: flex; flex-direction: column; gap: 0.5rem; }
 .modal-field label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1003,14 +1053,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .modal-submit {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #222;
   background: var(--amber);
   border: none;
-  padding: 0.85rem 2rem;
+  padding: 0.9rem 2rem;
+  min-height: 48px;
   border-radius: 3px;
   cursor: pointer;
   transition: background 0.3s;
@@ -1034,7 +1085,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .modal-error {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: #e74c3c;
 }
 .nav-contact-btn {
@@ -1108,12 +1159,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .cookie-btn {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.55rem 1.2rem;
+  padding: 0.65rem 1.4rem;
   border-radius: 6px;
+  min-height: 44px;
   cursor: pointer;
   transition: all 0.2s;
   border: 1px solid transparent;
@@ -1174,12 +1226,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .cookie-cat-desc {
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   color: var(--mute);
 }
 .cookie-cat-always {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1251,8 +1303,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  width: 22px;
-  height: 22px;
+  width: 36px;
+  height: 36px;
   background: none;
   border: none;
   color: var(--mute);
@@ -1265,7 +1317,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   z-index: 2;
 }
 .float-promo-close:hover { opacity: 1; }
-.float-promo-close svg { width: 12px; height: 12px; }
+.float-promo-close svg { width: 14px; height: 14px; }
 
 /* ── Promo image ── */
 .float-promo-img {
@@ -1289,7 +1341,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .float-promo-collapsed:hover { opacity: 0.9; }
 .float-promo-badge {
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: #1E2124;
@@ -1309,7 +1361,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .float-promo-cta {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1324,7 +1376,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .float-promo-panel-badge {
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: #1E2124;
@@ -1343,46 +1395,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .float-promo-panel-desc {
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   font-weight: 300;
   color: var(--mute);
   line-height: 1.5;
   margin-bottom: 0.8rem;
 }
-.float-promo-platforms {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.float-promo-platform {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.7rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 5px;
-  text-decoration: none;
-  color: var(--cream);
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  transition: all 0.2s;
-}
-.float-promo-platform:hover {
-  background: rgba(197,139,27,0.1);
-  border-color: var(--amber);
-  color: var(--amber);
-}
-.float-promo-platform svg {
-  flex-shrink: 0;
-  opacity: 0.7;
-}
-.float-promo-platform:hover svg {
-  opacity: 1;
-}
-
 @keyframes promoSlideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -1404,7 +1422,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .privacy-back a {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1414,7 +1432,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .privacy-back a:hover { opacity: 0.7; }
 .privacy-tag {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -1430,7 +1448,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .privacy-updated {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.72rem;
   color: var(--mute);
   margin-bottom: 3rem;
 }
@@ -1528,7 +1546,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   margin-top: 1rem;
 }
 .sc {
-  width: 40px; height: 40px;
+  width: 48px; height: 48px;
   border: 1px solid var(--line);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -1538,7 +1556,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: var(--amber);
   border-color: var(--amber);
 }
-.sc svg { width: 15px; height: 15px; fill: var(--mute); transition: fill 0.3s; }
+.sc svg { width: 18px; height: 18px; fill: var(--mute); transition: fill 0.3s; }
 .sc:hover svg { fill: var(--bg); }
 
 .bottom-links {
@@ -1548,12 +1566,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .bottom-links a {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--mute);
   transition: color 0.3s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 .bottom-links a:hover { color: var(--cream); }
 
@@ -1562,7 +1583,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .bottom-tool-btn {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1573,6 +1594,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+  min-height: 44px;
   transition: color 0.3s;
 }
 .bottom-tool-btn:hover { color: var(--cream); }
@@ -1583,36 +1605,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transition: transform 0.25s;
 }
 .bottom-tool-chevron.open { transform: rotate(180deg); opacity: 1; }
-.bottom-platforms {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
-  padding: 0.5rem 0.6rem;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  min-width: 120px;
-}
-.bottom-platform-link {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: var(--font-mono) !important;
-  font-size: 0.52rem !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--mute);
-  transition: color 0.2s;
-  white-space: nowrap;
-}
-.bottom-platform-link:hover { color: var(--amber) !important; }
-.bottom-platform-link svg { flex-shrink: 0; }
-
 .copy {
   margin-top: 1.5rem;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   color: var(--mute);
   opacity: 0.5;
 }
@@ -1697,13 +1692,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
-    padding: 0.45rem 0 !important;
-    font-size: 0.65rem !important;
+    padding: 0.6rem 0 !important;
+    font-size: 0.75rem !important;
     border-left: 1px solid var(--line) !important;
     padding-left: 1rem !important;
+    min-height: 44px !important;
   }
-  .nav-dropdown-menu a:first-child { padding-top: 0.45rem !important; }
-  .nav-dropdown-menu a:last-child { padding-bottom: 0.45rem !important; }
+  .nav-dropdown-menu a:first-child { padding-top: 0.6rem !important; }
+  .nav-dropdown-menu a:last-child { padding-bottom: 0.6rem !important; }
   .nav-chevron { transform: none; }
   .nav-dropdown-menu.mobile-open ~ .nav-dropdown-trigger .nav-chevron,
   .nav-dropdown:has(.mobile-open) .nav-chevron {
@@ -1714,22 +1710,40 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
-    padding: 0.45rem 0 !important;
-    font-size: 0.65rem !important;
+    padding: 0.6rem 0 !important;
+    font-size: 0.75rem !important;
     border-left: 1px solid var(--line) !important;
     padding-left: 1rem !important;
+    min-height: 44px !important;
   }
   .opening { padding: 0 0.75rem 4rem; }
   .opening-content { padding: 0; margin: 0; }
-  .opening-bg { background-size: auto 100% !important; background-position: center top !important; }
-  .opening h1 { font-size: 2.4rem; letter-spacing: -2px; }
+  .opening-bg {
+    background-size: auto 100% !important;
+    background-position: center top !important;
+    opacity: 0.82;
+    mask-image: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 100%) !important;
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 100%) !important;
+  }
+  .opening h1 { font-size: 2.4rem; letter-spacing: -2px; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+  .opening-pre, .opening-sub { text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
   .corner { display: none; }
   .bento-section { padding: 3rem 1rem 0; }
   .bento-grid { grid-template-columns: 1fr; }
   .bento-wide { grid-column: 1; }
-  .bento-card { min-height: 180px; padding: 1.5rem; }
-  .bento-card h4 { font-size: 1.1rem; }
-  .bento-card-cta { font-size: 0.52rem; padding: 0.4rem 0.8rem; }
+  .bento-card {
+    min-height: 180px;
+    padding: 1.5rem;
+    background: #363A40;
+  }
+  .bento-card .bento-card-bg { background: #2E3236 !important; }
+  .bento-card-img {
+    opacity: 0.92;
+    width: 58%;
+  }
+  .bento-card h4 { font-size: 1.1rem; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+  .bento-card-desc { color: rgba(255,255,255,0.7); }
+  .bento-card-cta { font-size: 0.68rem; padding: 0.55rem 1rem; min-height: 44px; }
   .fp-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -1744,9 +1758,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .room-learn { grid-row: 3; border-bottom: none; }
   .room-gear::after, .room-tech::before, .room-learn::after { display: none; }
   .room { min-height: 260px; padding: 2.5rem 2rem; }
+  .room:hover .room-bg { opacity: 0.5; }
+  .room-title { text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
   .fp-dim { display: none; }
   .mani { padding: 4rem 2rem; }
-  .mani-bg { width: 100%; opacity: 0.3; }
+  .mani-bg { width: 100%; opacity: 0.35; }
   .mani-bg-fade { background: linear-gradient(to right, var(--bg2) 0%, transparent 100%); }
   .bottom { grid-template-columns: 1fr; }
   .bottom-cell { border-right: none !important; border-bottom: 1px solid var(--line); }
