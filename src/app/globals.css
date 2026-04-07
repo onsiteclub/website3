@@ -166,22 +166,18 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .nav-dd-platforms {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.15rem 0.6rem;
+  flex-direction: column;
+  gap: 0.35rem;
   padding-left: 0.3rem;
+  margin-top: 0.2rem;
 }
-.nav-dd-platforms a {
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
-  color: var(--mute) !important;
-  padding: 0.35rem 0 !important;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-}
-.nav-dd-platforms a:hover {
-  color: var(--amber) !important;
-  background: transparent !important;
+.nav-dd-platforms .store-badge {
+  font-size: 0.7rem !important;
+  padding: 0.3rem 0.6rem !important;
+  border-radius: 6px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  width: auto !important;
 }
 
 /* ═══ LANGUAGE SELECTOR ═══ */
@@ -491,13 +487,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   position: absolute;
   inset: 0;
   object-fit: cover;
-  opacity: 0.12;
+  opacity: 0.18;
   z-index: 0;
   pointer-events: none;
   transition: opacity 0.3s;
 }
 .room:hover .room-bg {
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 /* Door gaps */
@@ -726,7 +722,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   top: 0; right: 0;
   width: 50%;
   height: 100%;
-  opacity: 0.7;
+  opacity: 0.55;
   z-index: 1;
   pointer-events: none;
   border-radius: 0 12px 12px 0;
@@ -1669,7 +1665,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     gap: 1.2rem;
     border-bottom: 1px solid var(--line);
   }
-  .nav-r.open a { display: block; font-size: 0.75rem; }
+  .nav-r.open a { display: block; font-size: 0.76rem; }
   /* Mobile dropdowns — accordion style */
   .nav-dropdown { width: 100%; }
   .nav-dropdown-trigger { width: 100%; justify-content: space-between; }
@@ -1737,13 +1733,17 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     background: #363A40;
   }
   .bento-card .bento-card-bg { background: #2E3236 !important; }
-  .bento-card-img {
-    opacity: 0.92;
-    width: 58%;
-  }
   .bento-card h4 { font-size: 1.1rem; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
   .bento-card-desc { color: rgba(255,255,255,0.7); }
-  .bento-card-cta { font-size: 0.68rem; padding: 0.55rem 1rem; min-height: 44px; }
+  .bento-card-cta {
+    font-size: 0.68rem;
+    padding: 0.55rem 1rem;
+    min-height: 44px;
+    background: var(--amber);
+    color: #1A1D21;
+    border-color: var(--amber);
+    font-weight: 700;
+  }
   .fp-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -1757,9 +1757,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .room-tech { grid-row: 2; }
   .room-learn { grid-row: 3; border-bottom: none; }
   .room-gear::after, .room-tech::before, .room-learn::after { display: none; }
-  .room { min-height: 260px; padding: 2.5rem 2rem; }
+  .room { min-height: 260px; padding: 2.5rem 2rem; background: rgba(255,255,255,0.03); }
+  .room-bg { opacity: 0.35; }
   .room:hover .room-bg { opacity: 0.5; }
-  .room-title { text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
+  .room h2 { color: #fff !important; text-shadow: 0 2px 12px rgba(0,0,0,0.8); }
+  .room-desc { color: #fff !important; font-weight: 400 !important; text-shadow: 0 1px 8px rgba(0,0,0,0.8), 0 0 3px rgba(0,0,0,0.5); }
+  .room-area { color: rgba(255,255,255,0.9) !important; opacity: 1 !important; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
   .fp-dim { display: none; }
   .mani { padding: 4rem 2rem; }
   .mani-bg { width: 100%; opacity: 0.35; }

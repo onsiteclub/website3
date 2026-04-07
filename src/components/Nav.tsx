@@ -12,6 +12,7 @@ import {
   CHECKLIST_URL,
 } from '@/lib/constants';
 import ContactModal from './ContactModal';
+import StoreButton, { type StorePlatform } from './StoreButton';
 
 const LOCALES = [
   { code: 'en', label: 'EN' },
@@ -32,36 +33,49 @@ const GEAR_ITEMS: DropdownItem[] = [
   { key: 'stickers', url: SHOP_STICKERS_URL },
 ];
 
-interface PlatformLink {
-  label: string;
-  url: string;
-}
-
 interface TechItem {
   key: string;
   url: string;
-  platforms?: PlatformLink[];
+  platforms?: StorePlatform[];
 }
 
 const TECH_ITEMS: TechItem[] = [
   {
     key: 'calculator', url: CALCULATOR_URL,
     platforms: [
-      { label: 'App Store', url: CALCULATOR_IOS_URL },
-      { label: 'Google Play', url: CALCULATOR_ANDROID_URL },
-      { label: 'Web', url: CALCULATOR_URL },
+      { icon: 'ios', url: CALCULATOR_IOS_URL, label: 'App Store' },
+      { icon: 'android', url: CALCULATOR_ANDROID_URL, label: 'Google Play' },
+      { icon: 'web', url: CALCULATOR_URL, label: 'Web App' },
     ],
   },
   {
     key: 'timekeeper', url: TIMEKEEPER_URL,
     platforms: [
-      { label: 'Google Play', url: TIMEKEEPER_ANDROID_URL },
-      { label: 'Web', url: TIMEKEEPER_URL },
+      { icon: 'android', url: TIMEKEEPER_ANDROID_URL, label: 'Google Play' },
+      { icon: 'web', url: TIMEKEEPER_URL, label: 'Web App' },
     ],
   },
   { key: 'checklist', url: CHECKLIST_URL },
   { key: 'custom', url: TECH_URL },
 ];
+
+function NavStoreIcon({ type }: { type: 'ios' | 'android' | 'web' }) {
+  if (type === 'ios') return (
+    <svg viewBox="0 0 384 512" className="nav-store-icon">
+      <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-62.1 24-72.5-24 1.3-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+    </svg>
+  );
+  if (type === 'android') return (
+    <svg viewBox="0 0 512 512" className="nav-store-icon">
+      <path fill="currentColor" d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.463 11.463 0 00-8.94 0L5.65 5.67c-.19-.29-.51-.38-.83-.22-.31.16-.43.54-.26.85L6.4 9.48A10.78 10.78 0 002 18h20a10.78 10.78 0 00-4.4-8.52zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z" />
+    </svg>
+  );
+  return (
+    <svg viewBox="0 0 24 24" className="nav-store-icon">
+      <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+    </svg>
+  );
+}
 
 const LEARN_ITEMS: DropdownItem[] = [
   { key: 'certifications', url: LEARN_URL },
@@ -169,11 +183,9 @@ export default function Nav() {
                 item.platforms ? (
                   <div key={item.key} className="nav-dd-group">
                     <span className="nav-dd-group-label">{td(item.key)}</span>
-                    <div className="nav-dd-platforms">
+                    <div className="nav-dd-platforms" onClick={closeAll}>
                       {item.platforms.map(p => (
-                        <a key={p.label} href={p.url} onClick={closeAll} target="_blank" rel="noopener noreferrer">
-                          {p.label}
-                        </a>
+                        <StoreButton key={p.icon} platform={p} />
                       ))}
                     </div>
                   </div>
