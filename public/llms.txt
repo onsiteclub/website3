@@ -21,8 +21,8 @@ Our mission: make it easier to gear up, track your hours, pass your certs, and r
 - **OnSite Job Checklist** — Coming soon. Pre-shift safety and task checklists.
 - **OnSite Agenda** — Coming soon. Daily planner built for trades schedules.
 
-### Member Dashboard — dashboard.onsiteclub.ca
-Track certifications, store certificates, earn Blades (loyalty points), and access Members Only gear.
+### Member Area — member.onsiteclub.ca
+Track certifications, store certificates, earn Blades (loyalty points), and access Members Only gear. Login via auth.onsiteclub.ca.
 
 ## Pathway — Construction Worker Certification Guide (Ontario)
 

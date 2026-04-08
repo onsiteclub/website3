@@ -39,7 +39,7 @@ export const SHOP_TEES_URL = `${SHOP_URL}/collections/tees`;
 export const SHOP_HOODIES_URL = `${SHOP_URL}/collections/hoodies`;
 export const SHOP_CAPS_URL = `${SHOP_URL}/collections/caps`;
 export const SHOP_STICKERS_URL = `${SHOP_URL}/collections/stickers`;
-export const DASHBOARD_URL = 'https://dashboard.onsiteclub.ca';
+export const DASHBOARD_URL = 'https://auth.onsiteclub.ca/login?return_to=https://member.onsiteclub.ca';
 export const CALCULATOR_URL = 'https://calculator.onsiteclub.ca';
 export const CALCULATOR_IOS_URL = 'https://apps.apple.com/us/app/onsite-calculator/id6758554794';
 export const CALCULATOR_ANDROID_URL = 'https://play.google.com/store/apps/details?id=ca.onsiteclub.calculator';

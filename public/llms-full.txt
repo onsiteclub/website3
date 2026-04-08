@@ -60,8 +60,8 @@ All tools are free web apps, built specifically for construction workers.
   Daily planner built for trades schedules. Schedule jobs, shifts, and crew with one
   calendar for the whole site.
 
-### Member Dashboard — dashboard.onsiteclub.ca
-Central hub for OnSite Club members. Features include:
+### Member Area — member.onsiteclub.ca
+Central hub for OnSite Club members (login via auth.onsiteclub.ca). Features include:
 - Certification tracking and progress visualization
 - Certificate storage and management
 - Blades (loyalty points) earning and redemption
