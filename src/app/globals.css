@@ -1346,7 +1346,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 240;
-  width: 360px;
+  width: 560px;
   background: #111315;
   border-radius: 14px;
   overflow: hidden;
@@ -1433,7 +1433,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* ── Calculator iframe ── */
 .calc-widget-iframe-wrap {
   flex: 1;
-  height: 480px;
+  height: 300px;
   overflow: hidden;
 }
 .calc-widget-iframe {
@@ -1689,7 +1689,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     left: 0;
     width: 100%;
     border-radius: 14px 14px 0 0;
-    max-height: 85vh;
+    max-height: 70vh;
+  }
+  .calc-widget-iframe-wrap {
+    height: 240px;
   }
   .nav { padding: 1rem; }
   .nav-toggle { display: flex; }
