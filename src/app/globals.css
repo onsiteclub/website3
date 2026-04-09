@@ -1370,26 +1370,38 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.6rem 0.7rem 0.6rem 1rem;
+  padding: 0.45rem 0.5rem 0.45rem 0.6rem;
   background: #1A1D21;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  gap: 0.4rem;
 }
-.calc-widget-title {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--amber);
-}
-.calc-widget-actions {
+.calc-widget-stores {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.3rem;
+  flex: 1;
 }
-.calc-widget-badge-toggle,
-.calc-widget-minimize {
-  width: 32px;
-  height: 32px;
+.calc-widget-stores .store-badge {
+  font-size: 0.6rem !important;
+  padding: 0.2rem 0.5rem !important;
+  border-radius: 5px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  gap: 0.35rem !important;
+}
+.calc-widget-stores .store-icon {
+  width: 14px !important;
+  height: 14px !important;
+}
+.calc-widget-stores .store-badge-sub {
+  font-size: 0.35rem !important;
+}
+.calc-widget-stores .store-badge-name {
+  font-size: 0.6rem !important;
+}
+.calc-widget-close {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
   background: none;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 6px;
@@ -1400,37 +1412,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   cursor: pointer;
   transition: color 0.2s, background 0.2s, border-color 0.2s;
 }
-.calc-widget-badge-toggle:hover,
-.calc-widget-minimize:hover {
+.calc-widget-close:hover {
   color: var(--cream);
   background: rgba(255,255,255,0.06);
   border-color: rgba(255,255,255,0.15);
 }
-.calc-widget-badge-toggle svg,
-.calc-widget-minimize svg {
-  width: 16px;
-  height: 16px;
-}
-
-/* ── Download badges slide-down ── */
-.calc-widget-badges {
-  padding: 0.8rem 1rem;
-  background: #1A1D21;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  animation: badgesSlide 0.25s ease-out;
-}
-.calc-widget-badges-text {
-  font-size: 0.75rem;
-  color: var(--mute);
-  line-height: 1.4;
-  margin-bottom: 0.6rem;
-}
-.calc-widget-badges .store-badges {
-  margin-top: 0;
-}
-@keyframes badgesSlide {
-  from { opacity: 0; max-height: 0; padding-top: 0; padding-bottom: 0; }
-  to { opacity: 1; max-height: 200px; }
+.calc-widget-close svg {
+  width: 14px;
+  height: 14px;
 }
 
 /* ── Calculator iframe ── */

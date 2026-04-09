@@ -17,7 +17,6 @@ const PLATFORMS: StorePlatform[] = [
 export default function FloatingPromo() {
   const t = useTranslations('banner');
   const [open, setOpen] = useState(false);
-  const [showBadges, setShowBadges] = useState(false);
   const [ready, setReady] = useState(false);
 
   /* Show minimised FAB after 3s */
@@ -58,42 +57,21 @@ export default function FloatingPromo() {
         <div className="calc-widget">
           {/* Header bar */}
           <div className="calc-widget-header">
-            <span className="calc-widget-title">OnSite Calculator</span>
-            <div className="calc-widget-actions">
-              <button
-                className="calc-widget-badge-toggle"
-                onClick={() => setShowBadges(!showBadges)}
-                aria-label="Download app"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-              </button>
-              <button
-                className="calc-widget-minimize"
-                onClick={() => { setOpen(false); setShowBadges(false); }}
-                aria-label="Minimize"
-              >
-                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="3" y1="7" x2="11" y2="7" />
-                </svg>
-              </button>
+            <div className="calc-widget-stores">
+              {PLATFORMS.map((p) => (
+                <StoreButton key={p.icon} platform={p} />
+              ))}
             </div>
+            <button
+              className="calc-widget-close"
+              onClick={() => { setOpen(false); }}
+              aria-label="Close"
+            >
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M11 3L3 11M3 3l8 8" />
+              </svg>
+            </button>
           </div>
-
-          {/* Download badges slide-down */}
-          {showBadges && (
-            <div className="calc-widget-badges">
-              <p className="calc-widget-badges-text">{t('calculator_desc')}</p>
-              <div className="store-badges store-badges--sm">
-                {PLATFORMS.map((p) => (
-                  <StoreButton key={p.icon} platform={p} />
-                ))}
-              </div>
-            </div>
-          )}
 
           {/* Iframe — the actual calculator */}
           <div className="calc-widget-iframe-wrap">
