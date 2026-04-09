@@ -96,7 +96,7 @@ export default function Bottom() {
               </div>
             )}
           </div>
-          <a href={DASHBOARD_URL}>{t('members')}</a>
+          <a href={DASHBOARD_URL} target="_blank" rel="noopener noreferrer">{t('members')}</a>
         </div>
       </div>
 

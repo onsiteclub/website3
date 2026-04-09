@@ -20,7 +20,6 @@ const PLATFORMS: StorePlatform[] = [
 export default function FloatingPromo() {
   const t = useTranslations('banner');
   const [visible, setVisible] = useState(false);
-  const [expanded, setExpanded] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,70 +30,69 @@ export default function FloatingPromo() {
   }, []);
 
   useEffect(() => {
-    if (!expanded) return;
+    if (!visible) return;
     function handleClick(e: MouseEvent) {
       if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
-        setExpanded(false);
+        dismiss();
       }
     }
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
-  }, [expanded]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visible]);
 
   useEffect(() => {
-    if (!expanded) return;
+    if (!visible) return;
     function handleKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setExpanded(false);
+      if (e.key === 'Escape') dismiss();
     }
     document.addEventListener('keydown', handleKey);
     return () => document.removeEventListener('keydown', handleKey);
-  }, [expanded]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visible]);
 
-  function dismiss(e: React.MouseEvent) {
-    e.preventDefault();
-    e.stopPropagation();
+  function dismiss() {
     setVisible(false);
-    setExpanded(false);
     sessionStorage.setItem(STORAGE_KEY, '1');
   }
 
   if (!visible) return null;
 
   return (
-    <div ref={panelRef} className={`float-promo ${expanded ? 'float-promo-expanded' : ''}`}>
-      {/* Full background image */}
+    <div ref={panelRef} className="float-promo">
+      {/* Background image */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="float-promo-bg"
-        src="/images/tool-calculator-woman.png"
+        src="/images/calc1.jpeg"
         alt=""
         aria-hidden="true"
       />
+      {/* Dark overlay for contrast */}
+      <div className="float-promo-overlay" />
 
-      <button className="float-promo-close" onClick={dismiss} aria-label="Close">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
+      {/* Close */}
+      <button
+        className="float-promo-close"
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); dismiss(); }}
+        aria-label="Close"
+      >
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M11 3L3 11M3 3l8 8" />
         </svg>
       </button>
 
-      {!expanded ? (
-        <div className="float-promo-collapsed" onClick={() => setExpanded(true)} role="button" tabIndex={0}>
-          <div className="float-promo-badge">{t('calculator_badge')}</div>
-          <div className="float-promo-title">{t('calculator_name')}</div>
-          <div className="float-promo-cta">{t('calculator_cta')} &rarr;</div>
+      {/* Content */}
+      <div className="float-promo-body">
+        <span className="float-promo-badge">{t('calculator_badge')}</span>
+        <h3 className="float-promo-title">{t('calculator_name')}</h3>
+        <p className="float-promo-desc">{t('calculator_desc')}</p>
+        <div className="float-promo-actions">
+          {PLATFORMS.map((p) => (
+            <StoreButton key={p.icon} platform={p} />
+          ))}
         </div>
-      ) : (
-        <div className="float-promo-panel">
-          <div className="float-promo-panel-badge">{t('calculator_badge')}</div>
-          <div className="float-promo-panel-name">{t('calculator_name')}</div>
-          <div className="float-promo-panel-desc">{t('calculator_desc')}</div>
-          <div className="store-badges store-badges--sm">
-            {PLATFORMS.map((p) => (
-              <StoreButton key={p.icon} platform={p} />
-            ))}
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
 }

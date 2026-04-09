@@ -253,7 +253,7 @@ export default function Nav() {
             </div>
           </div>
 
-          <a href={DASHBOARD_URL} className="nav-btn" onClick={closeAll}>{t('members')}</a>
+          <a href={DASHBOARD_URL} className="nav-btn" onClick={closeAll} target="_blank" rel="noopener noreferrer">{t('members')}</a>
         </div>
       </nav>
       <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />

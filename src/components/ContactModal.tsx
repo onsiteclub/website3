@@ -36,10 +36,11 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     setStatus('sending');
     const form = e.currentTarget;
     try {
-      const res = await fetch('https://formspree.io/f/xcontact', {
+      const data = Object.fromEntries(new FormData(form));
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
       if (res.ok) {
         setStatus('success');
