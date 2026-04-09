@@ -1297,121 +1297,150 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transform: translateX(16px);
 }
 
-/* ═══ FLOATING PROMO ═══ */
-/* ── Floating promo container ── */
-.float-promo {
+/* ═══ FLOATING CALCULATOR WIDGET ═══ */
+
+/* ── Minimised FAB ── */
+.calc-fab {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 240;
-  width: 380px;
-  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--amber);
+  color: #1A1D21;
+  border: none;
+  border-radius: 50px;
+  padding: 0.7rem 1.2rem 0.7rem 0.9rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: calcFabIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.calc-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.5);
+}
+.calc-fab svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.calc-fab-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@keyframes calcFabIn {
+  from { opacity: 0; transform: scale(0.8) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── Expanded widget ── */
+.calc-widget {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 240;
+  width: 360px;
+  background: #111315;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow:
-    0 20px 60px rgba(0,0,0,0.5),
+    0 20px 60px rgba(0,0,0,0.6),
     0 0 0 1px rgba(255,255,255,0.08);
-  animation: promoSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: calcWidgetIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+@keyframes calcWidgetIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ── Background image — full bleed, solid ── */
-.float-promo-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  z-index: 0;
+/* ── Header bar ── */
+.calc-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.7rem 0.6rem 1rem;
+  background: #1A1D21;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-
-/* ── Dark overlay for text contrast ── */
-.float-promo-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgba(8,10,12, 0.95) 0%,
-    rgba(8,10,12, 0.80) 50%,
-    rgba(8,10,12, 0.50) 100%
-  );
+.calc-widget-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--amber);
 }
-
-/* ── Close button ── */
-.float-promo-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+.calc-widget-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+.calc-widget-badge-toggle,
+.calc-widget-minimize {
   width: 32px;
   height: 32px;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 50%;
-  color: #fff;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  color: var(--mute);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.2s, background 0.2s;
-  z-index: 3;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
 }
-.float-promo-close:hover { opacity: 1; background: rgba(0,0,0,0.7); }
-.float-promo-close svg { width: 12px; height: 12px; }
-
-/* ── Content body ── */
-.float-promo-body {
-  position: relative;
-  z-index: 2;
-  padding: 7rem 1.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+.calc-widget-badge-toggle:hover,
+.calc-widget-minimize:hover {
+  color: var(--cream);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.15);
+}
+.calc-widget-badge-toggle svg,
+.calc-widget-minimize svg {
+  width: 16px;
+  height: 16px;
 }
 
-.float-promo-badge {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #1A1D21;
-  background: var(--amber);
-  padding: 0.2rem 0.55rem;
-  border-radius: 3px;
-  display: inline-block;
-  width: fit-content;
+/* ── Download badges slide-down ── */
+.calc-widget-badges {
+  padding: 0.8rem 1rem;
+  background: #1A1D21;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  animation: badgesSlide 0.25s ease-out;
+}
+.calc-widget-badges-text {
+  font-size: 0.75rem;
+  color: var(--mute);
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.calc-widget-badges .store-badges {
+  margin-top: 0;
+}
+@keyframes badgesSlide {
+  from { opacity: 0; max-height: 0; padding-top: 0; padding-bottom: 0; }
+  to { opacity: 1; max-height: 200px; }
 }
 
-.float-promo-title {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-  margin: 0;
+/* ── Calculator iframe ── */
+.calc-widget-iframe-wrap {
+  flex: 1;
+  height: 480px;
+  overflow: hidden;
 }
-
-.float-promo-desc {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.45;
-  margin: 0 0 0.4rem;
-}
-
-.float-promo-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin-top: 0.2rem;
-}
-
-@keyframes promoSlideUp {
-  from { opacity: 0; transform: translateY(24px) scale(0.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+.calc-widget-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #111315;
 }
 
 /* ═══ PRIVACY PAGE ═══ */
@@ -1650,13 +1679,18 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 /* ═══ MOBILE ═══ */
 @media (max-width: 900px) {
-  .float-promo {
+  .calc-fab {
     bottom: 1rem;
     right: 1rem;
-    left: 1rem;
-    width: auto;
   }
-  .float-promo-body { padding-top: 5.5rem; }
+  .calc-widget {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 14px 14px 0 0;
+    max-height: 85vh;
+  }
   .nav { padding: 1rem; }
   .nav-toggle { display: flex; }
   .nav-r { display: none; }

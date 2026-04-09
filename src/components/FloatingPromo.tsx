@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import StoreButton, { type StorePlatform } from './StoreButton';
 import {
@@ -9,90 +9,103 @@ import {
   CALCULATOR_ANDROID_URL,
 } from '@/lib/constants';
 
-const STORAGE_KEY = 'onsite_promo_dismissed';
-
 const PLATFORMS: StorePlatform[] = [
   { icon: 'ios', url: CALCULATOR_IOS_URL, label: 'App Store' },
   { icon: 'android', url: CALCULATOR_ANDROID_URL, label: 'Google Play' },
-  { icon: 'web', url: CALCULATOR_URL, label: 'Web App' },
 ];
 
 export default function FloatingPromo() {
   const t = useTranslations('banner');
-  const [visible, setVisible] = useState(false);
-  const panelRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+  const [showBadges, setShowBadges] = useState(false);
+  const [ready, setReady] = useState(false);
 
+  /* Show minimised FAB after 3s */
   useEffect(() => {
-    const dismissed = sessionStorage.getItem(STORAGE_KEY);
-    if (dismissed) return;
-    const timer = setTimeout(() => setVisible(true), 3000);
+    const timer = setTimeout(() => setReady(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    if (!visible) return;
-    function handleClick(e: MouseEvent) {
-      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
-        dismiss();
-      }
-    }
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visible]);
-
-  useEffect(() => {
-    if (!visible) return;
-    function handleKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') dismiss();
-    }
-    document.addEventListener('keydown', handleKey);
-    return () => document.removeEventListener('keydown', handleKey);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visible]);
-
-  function dismiss() {
-    setVisible(false);
-    sessionStorage.setItem(STORAGE_KEY, '1');
-  }
-
-  if (!visible) return null;
+  if (!ready) return null;
 
   return (
-    <div ref={panelRef} className="float-promo">
-      {/* Background image */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        className="float-promo-bg"
-        src="/images/calc1.jpeg"
-        alt=""
-        aria-hidden="true"
-      />
-      {/* Dark overlay for contrast */}
-      <div className="float-promo-overlay" />
+    <>
+      {/* ── Minimised FAB ── */}
+      {!open && (
+        <button
+          className="calc-fab"
+          onClick={() => setOpen(true)}
+          aria-label="Open Calculator"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2" />
+            <line x1="8" y1="6" x2="16" y2="6" />
+            <line x1="8" y1="10" x2="8" y2="10.01" />
+            <line x1="12" y1="10" x2="12" y2="10.01" />
+            <line x1="16" y1="10" x2="16" y2="10.01" />
+            <line x1="8" y1="14" x2="8" y2="14.01" />
+            <line x1="12" y1="14" x2="12" y2="14.01" />
+            <line x1="16" y1="14" x2="16" y2="14.01" />
+            <line x1="8" y1="18" x2="8" y2="18.01" />
+            <line x1="12" y1="18" x2="16" y2="18" />
+          </svg>
+          <span className="calc-fab-label">{t('calculator_cta')}</span>
+        </button>
+      )}
 
-      {/* Close */}
-      <button
-        className="float-promo-close"
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); dismiss(); }}
-        aria-label="Close"
-      >
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M11 3L3 11M3 3l8 8" />
-        </svg>
-      </button>
+      {/* ── Expanded calculator widget ── */}
+      {open && (
+        <div className="calc-widget">
+          {/* Header bar */}
+          <div className="calc-widget-header">
+            <span className="calc-widget-title">OnSite Calculator</span>
+            <div className="calc-widget-actions">
+              <button
+                className="calc-widget-badge-toggle"
+                onClick={() => setShowBadges(!showBadges)}
+                aria-label="Download app"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+              </button>
+              <button
+                className="calc-widget-minimize"
+                onClick={() => { setOpen(false); setShowBadges(false); }}
+                aria-label="Minimize"
+              >
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="3" y1="7" x2="11" y2="7" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
-      {/* Content */}
-      <div className="float-promo-body">
-        <span className="float-promo-badge">{t('calculator_badge')}</span>
-        <h3 className="float-promo-title">{t('calculator_name')}</h3>
-        <p className="float-promo-desc">{t('calculator_desc')}</p>
-        <div className="float-promo-actions">
-          {PLATFORMS.map((p) => (
-            <StoreButton key={p.icon} platform={p} />
-          ))}
+          {/* Download badges slide-down */}
+          {showBadges && (
+            <div className="calc-widget-badges">
+              <p className="calc-widget-badges-text">{t('calculator_desc')}</p>
+              <div className="store-badges store-badges--sm">
+                {PLATFORMS.map((p) => (
+                  <StoreButton key={p.icon} platform={p} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Iframe — the actual calculator */}
+          <div className="calc-widget-iframe-wrap">
+            <iframe
+              src={CALCULATOR_URL}
+              title="OnSite Calculator"
+              className="calc-widget-iframe"
+              allow="microphone"
+            />
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
