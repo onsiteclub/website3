@@ -1,13 +1,18 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO_EMAIL = 'contact@onsiteclub.ca';
 const FROM_EMAIL = 'OnSite Contact <noreply@onsiteclub.ca>';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json({ error: 'Mail service not configured' }, { status: 503 });
+    }
+    const resend = new Resend(apiKey);
     const { name, email, message } = await request.json();
 
     if (!name || !email || !message) {
