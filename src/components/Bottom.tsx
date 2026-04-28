@@ -15,6 +15,7 @@ import {
   CALCULATOR_IOS_URL,
   CALCULATOR_ANDROID_URL,
   TIMEKEEPER_URL,
+  TIMEKEEPER_IOS_URL,
   TIMEKEEPER_ANDROID_URL,
   DASHBOARD_URL,
 } from '@/lib/constants';
@@ -26,6 +27,7 @@ const CALC_PLATFORMS: StorePlatform[] = [
 ];
 
 const TK_PLATFORMS: StorePlatform[] = [
+  { icon: 'ios', url: TIMEKEEPER_IOS_URL, label: 'App Store' },
   { icon: 'android', url: TIMEKEEPER_ANDROID_URL, label: 'Google Play' },
   { icon: 'web', url: TIMEKEEPER_URL, label: 'Web' },
 ];

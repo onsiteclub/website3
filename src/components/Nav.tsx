@@ -8,7 +8,7 @@ import {
   SHOP_URL, TECH_URL, LEARN_URL, DASHBOARD_URL,
   SHOP_TEES_URL, SHOP_HOODIES_URL, SHOP_CAPS_URL, SHOP_STICKERS_URL,
   CALCULATOR_URL, CALCULATOR_IOS_URL, CALCULATOR_ANDROID_URL,
-  TIMEKEEPER_URL, TIMEKEEPER_ANDROID_URL,
+  TIMEKEEPER_URL, TIMEKEEPER_IOS_URL, TIMEKEEPER_ANDROID_URL,
   CHECKLIST_URL,
 } from '@/lib/constants';
 import ContactModal from './ContactModal';
@@ -52,6 +52,7 @@ const TECH_ITEMS: TechItem[] = [
     key: 'timekeeper', url: TIMEKEEPER_URL,
     platforms: [
       { icon: 'android', url: TIMEKEEPER_ANDROID_URL, label: 'Google Play' },
+      { icon: 'ios', url: TIMEKEEPER_IOS_URL, label: 'App Store' },
       { icon: 'web', url: TIMEKEEPER_URL, label: 'Web App' },
     ],
   },
